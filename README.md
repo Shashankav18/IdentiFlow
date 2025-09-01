@@ -16,6 +16,8 @@ The project provides APIs to manage and identify service requests, ensuring that
 ---
 
 ## 📂 Project Structure
+
+
 ├── docker-compose.yml # Docker setup
 ├── Dockerfile # Container build file
 ├── package.json # Node.js dependencies & scripts
@@ -29,8 +31,6 @@ The project provides APIs to manage and identify service requests, ensuring that
 └── utils/
 └── identifyLogic.ts # Core business logic
 
-yaml
-Copy code
 
 ---
 
@@ -49,41 +49,46 @@ Copy code
 ```bash
 git clone https://github.com/your-username/service-order-tracking.git
 cd service-order-tracking
-2. Install dependencies
-bash
-Copy code
-npm install
-3. Setup environment
-Create a .env file in the root directory:
+```
 
-env
-Copy code
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Setup environment
+Create a `.env` file in the root directory:
+```bash
 DATABASE_URL="postgresql://user:password@localhost:5432/ordersdb"
 PORT=3000
-4. Run database migrations
-bash
-Copy code
+```
+
+### 4. Run database migrations
+```bash
 npx prisma migrate dev
-5. Start the development server
-bash
-Copy code
+```
+
+### 5. Start the development server
+```bash
 npm run dev
-🐳 Run with Docker
-bash
-Copy code
+```
+
+---
+
+## 🐳 Run with Docker
+```bash
 docker-compose up --build
-📡 API Endpoints
-POST /identify
+```
+
+---
+
+## 📡 API Endpoints
+
+### POST /identify
 Identify and track a customer service order.
 
-Input: Order/customer details
-
-Output: Linked/merged identity with order tracking info
-
-Example:
-
-json
-Copy code
+**Input:**
+```json
 {
   "customer": {
     "email": "john@example.com",
@@ -94,21 +99,25 @@ Copy code
     "status": "Pending"
   }
 }
-Response:
+```
 
-json
-Copy code
+**Response:**
+```json
 {
   "customerId": "cust_12345",
   "orderId": "order_98765",
   "status": "Tracked"
 }
-📌 Scripts
-npm run dev → Start development server with nodemon
+```
 
-npm run build → Build TypeScript project
+---
 
-npm start → Run production build
+## 📌 Scripts
+- `npm run dev` → Start development server with nodemon  
+- `npm run build` → Build TypeScript project  
+- `npm start` → Run production build  
 
-📖 License
+---
+
+## 📖 License
 MIT License © 2025
